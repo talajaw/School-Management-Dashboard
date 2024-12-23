@@ -1,3 +1,8 @@
+import { role } from "@/lib/data";
+import Image from "next/image";
+import Link from "next/link";
+import { it } from "node:test";
+
 const menuItems = [
   {
     title: "MENU",
@@ -112,3 +117,38 @@ const menuItems = [
     ],
   },
 ];
+
+export default function Menu() {
+  return (
+    <div className="Menu mt-4 text-sm ">
+      {menuItems.map((i) => (
+        <div key={i.title} className="flex flex-col gap-2  ">
+          <span className=" hidden lg:block text-gray-400 font-light">
+            {i.title}
+          </span>
+          {i.items.map((item) => {
+            // show the sidebar items based on role
+            if (item.visible.includes(role)) {
+              return (
+                <Link
+                  href={item.href}
+                  key={item.label}
+                  className="Menu  py-2 flex items-center justify-center lg:justify-start gap-4 text-gray-500 md:px-2  rounded-md hover:bg-red-100 "
+                >
+                  <Image
+                    src={item.icon}
+                    alt=""
+                    width={20}
+                    height={20}
+                    className=" hover:opacity-65 "
+                  />
+                  <span className=" hidden lg:block"> {item.label}</span>
+                </Link>
+              );
+            }
+          })}
+        </div>
+      ))}
+    </div>
+  );
+}

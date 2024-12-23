@@ -13,6 +13,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors:{
+        talaSky:"#C3E8FA",
+        talaSkyLight:"#EDF9FD",
+        talaPurple: "#CFCEFF",
+        talaPurpleLight: "#F1F0FF",
+        talaYellow: "#FAE27C",
+        talaYellowLight: "#FEFCE8",
+      },
     },
   },
   plugins: [],
